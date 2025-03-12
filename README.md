@@ -27,15 +27,15 @@ Welcome to the **Stone-Paper-Scissors** game! This is a fun and interactive Pyth
 4. Run the command:
 
    ```sh
-   python stone_paper_scissors.py
+   python stone-paper-scissors.py
    ```
 
 ## Awesome Features!
-- **Fun & Randomized Messages** – Every win, loss, or tie comes with a unique and funny message to keep things entertaining.  
+- **Fun Messages** – Every win, loss, or tie comes with a unique and funny message to keep things entertaining.  
 - **Smart Input Handling** – The game ensures you enter a valid choice before proceeding. No accidental typos ruining the fun.  
 - **Play as Long as You Want** – The game loops continuously until you decide to stop. Just type 'no' when asked to play again.  
 - **Quick & Simple** – No installations, no setup. Just run the script and start playing instantly.  
-- **Challenge Yourself** – Try to outsmart the computer in this battle of luck and strategy. Can you win the ultimate showdown?  
+- **Challenge Yourself** – Try to outsmart the computer in this battle of luck and strategy. 
 
 ---
-Enjoy the game and may the best player win!
+Enjoy the game!
