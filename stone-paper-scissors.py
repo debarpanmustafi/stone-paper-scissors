@@ -1,12 +1,14 @@
-# A SIMPLE STONE PAPER SCISSOR GAME
-# Game Rules:
-# - Stone beats Scissors (Stone crushes Scissors)
-# - Scissors beats Paper (Scissors cut Paper)
-# - Paper beats Stone (Paper covers Stone)
-# - If both choices are the same, it's a tie.
-
+print('''
+|A SIMPLE STONE PAPER SCISSOR GAME|
+\nGame Rules:
+- Stone beats Scissors (Stone crushes Scissors)
+- Scissors beats Paper (Scissors cut Paper)
+- Paper beats Stone (Paper covers Stone)
+- If both choices are the same, it's a tie.
+''')
 
 import random
+import time
 
 win_messages = [
     "Victory! The computer bows down to your greatness.",
@@ -41,37 +43,42 @@ tie_messages = [
     "This round is a tie. But who will break the cycle?"
 ]
 
-
 def game():
     choices = ["stone","paper","scissors"]
 
-   
     while True:
-        user = input("Enter your choice (Stone/Paper/Scissors): ").strip().lower()
+        user = input("\nEnter your choice (Stone/Paper/Scissors): ").strip().lower()
         
         if user in choices:
             break
         else:
-            print("Something went wrong. Please try again.")
+            print("\nSomething went wrong. Please try again.")
+
+    print("\nUmm... The computer is thinking...")
+    time.sleep(random.uniform(2, 3))
 
     computer = random.choice(choices)
     
-    print(f"You chose: {user}")
+    print(f"\nYou chose: {user}")
     print(f"Computer chose: {computer}")
 
     if (user == computer):
-        print(random.choice(tie_messages))
-    elif (user == "stone" and computer == "scissors") or \
-         (user == "paper" and computer == "stone") or \
-         (user == "scissors" and computer == "paper"):
+        print("\n"+random.choice(tie_messages))
+    elif (user, computer) in {("stone", "scissors"), ("scissors", "paper"), ("paper", "stone")}:
         print("\n"+random.choice(win_messages))
     else:
         print("\n"+random.choice(lose_messages))
 
 playing = True
+
 while playing:
     game()
-    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
-    playing = play_again == "yes"
+    while True:
+        play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
+        if play_again in ("yes", "y", "no", "n"):
+            break
+        else:
+            print("Oops! Invalid input!")
+    playing = play_again in ("yes", "y")
 
-print("\n"+random.choice(goodbye_messages))
+print("\n"+random.choice(goodbye_messages)+"\n")
